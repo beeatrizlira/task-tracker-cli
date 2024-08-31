@@ -1,97 +1,99 @@
 
 # Task Tracker CLI
 
-Task Tracker CLI é um gerenciador de tarefas simples e eficiente, acessado diretamente pelo terminal. Este projeto permite que você adicione, liste, e gerencie suas tarefas diárias usando comandos rápidos e fáceis no CLI.
+Task Tracker CLI is a simple and efficient task manager accessed directly from the terminal. This project allows you to add, list, and manage your daily tasks using quick and easy CLI commands.
 
-## Funcionalidades
+## Features
 
-- **Adicionar Tarefas**: Crie novas tarefas com uma descrição e um status inicial.
-- **Listar Tarefas**: Veja todas as suas tarefas ou filtre-as por status (todo, in-progress, done).
-- **Atualizar Tarefas**: Altere o status ou descrição de uma tarefa específica.
-- **Remover Tarefas**: Exclua tarefas concluídas ou indesejadas.
+- **Add Tasks**: Create new tasks with a description and an initial status.
+- **List Tasks**: View all your tasks or filter them by status (todo, in-progress, done).
+- **Update Tasks**: Change the status or description of a specific task.
+- **Delete Tasks**: Remove completed or unwanted tasks.
 
-## Requisitos
+## Requirements
 
-- Node.js v14 ou superior
-- npm ou yarn
+- Node.js v14 or higher
+- npm or yarn
 - TypeScript
 
-## Instalação
+## Installation
 
-Clone o repositório e instale as dependências:
+Clone the repository and install the dependencies:
 
 \```bash
-git clone https://github.com/seu-usuario/task-tracker-cli.git
+git clone https://github.com/your-username/task-tracker-cli.git
 cd task-tracker-cli
 npm install
 \```
 
-### Configuração
+### Build
 
-Após a instalação, você pode construir o projeto usando:
+After installation, you can build the project using:
 
 \```bash
 npm run build
 \```
 
-### Uso
+### Usage
 
-O `task-cli` é o comando principal que você utilizará para gerenciar suas tarefas. Aqui estão alguns exemplos de como usá-lo:
+The `task-cli` command is the main tool you will use to manage your tasks. Here are some examples of how to use it:
 
-#### Adicionar uma Tarefa
+#### Add a Task
 
 \```bash
-task-cli add "Minha nova tarefa"
+task-cli add "My new task"
+or
+task-cli add "My new task" <task_status>
 \```
 
-#### Listar Todas as Tarefas
+#### List All Tasks
 
 \```bash
 task-cli list
 \```
 
-#### Filtrar Tarefas por Status
+#### Filter Tasks by Status
 
 \```bash
-task-cli list --filter todo
+task-cli list <status>
 \```
 
-#### Atualizar o Status de uma Tarefa
+#### Update the Status of a Task
 
 \```bash
 task-cli mark-in-progress <task_id>
 \```
 
-#### Remover uma Tarefa
+#### Delete a Task
 
 \```bash
 task-cli delete <task_id>
 \```
 
-### Desenvolvimento
+### Development
 
-Durante o desenvolvimento, você pode usar o comando abaixo para iniciar o projeto em modo de desenvolvimento:
+During development, you can use the following command to start the project in development mode:
 
 \```bash
 npm start
 \```
 
-Para garantir a qualidade do código, use:
+To ensure code quality, use:
 
-- **Lint**: Para analisar e encontrar problemas no código:
+- **Lint**: To analyze and find problems in the code:
   \```bash
   npm run precommit
   \```
 
-- **Formatação**: Para garantir que o código siga um padrão consistente:
+- **Formatting**: To ensure the code follows a consistent style:
   \```bash
   npm run format
   \```
 
-### Contribuição
+### Contribution
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorar o projeto.
+Contributions are welcome! Feel free to open issues and pull requests to improve the project.
 
-### Licença
+### License
 
-Este projeto está licenciado sob a licença ISC. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
