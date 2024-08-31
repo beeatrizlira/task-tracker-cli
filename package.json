@@ -1,0 +1,16 @@
+{
+  "name": "task-tracker-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "yarn tsc && ls -la dist && echo \"Build completo!\"",
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "NODE_ENV=development tsx ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
