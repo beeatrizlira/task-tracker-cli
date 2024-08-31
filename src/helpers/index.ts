@@ -1,4 +1,4 @@
-import { Functionalities } from '../types'
+import { Functionalities } from 'types/index.js'
 
 export const FUNCTIONALITIES_MAPPER: Record<
   Functionalities,

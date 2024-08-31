@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import * as process from 'process'
-import { FUNCTIONALITIES_MAPPER } from '../helpers'
-import { Functionalities } from '../types'
+import { FUNCTIONALITIES_MAPPER } from '../helpers/index.js'
+import { Functionalities } from 'types/index.js'
 
 function callFunctionalities() {
   const parameters = process.argv
@@ -14,11 +14,7 @@ function callFunctionalities() {
     return
   }
 
-  if (
-    !['add', 'list', 'update', 'list', 'mark-done', 'mark_in_progress'].includes(
-      functionality
-    )
-  ) {
+  if (!['add', 'list', 'update', 'list', 'mark-done', 'mark_in_progress'].includes(functionality)) {
     console.error('Error: Invalid command.')
     return
   }

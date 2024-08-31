@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
+    "lib": [
+      "ESNext" /* ESNext includes new Level-4 features that were
+               recently added to the ECMA-262 JS spec */
+     ],
     /* Language and Environment */
     "target": "ES2018",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "newLine": "LF",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -22,8 +26,12 @@
     "strict": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@helpers/*": ["helpers/*"]
+    }
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist/**/*.d.ts", ]
 }

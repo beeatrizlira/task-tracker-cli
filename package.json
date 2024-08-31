@@ -2,9 +2,10 @@
   "name": "task-tracker-cli",
   "version": "1.0.0",
   "main": "./dist/bin/index.js",
+  "type": "module",
   "scripts": {
     "tsc": "tsc",
-    "build": "yarn tsc && ls -la dist && echo \"Build completo!\"",
+    "build": "npm run tsc && ls -la dist && echo \"Build completo!\"",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "NODE_ENV=development tsx ./src/server.ts",
@@ -32,6 +33,8 @@
     "globals": "^15.9.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.0-dev.20240831",
     "typescript-eslint": "^8.3.0"
   }
 }

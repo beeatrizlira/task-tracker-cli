@@ -20,5 +20,6 @@ export const config = {
   },
   globals: {
     process: true
-  }
+  },
+  ignores: ["*.d.ts"]
 }
