@@ -1,6 +1,5 @@
 import { TaskManagerService } from '../services/task-manager.js'
-import { Functionalities } from '../types/index.ts'
-
+import { Functionalities } from '../types/index.js'
 
 const taskManagerService = new TaskManagerService()
 export const FUNCTIONALITIES_MAPPER: Record<

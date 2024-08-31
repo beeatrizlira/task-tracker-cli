@@ -12,7 +12,7 @@ export class TaskManagerService {
   async getTasks() {
     try {
       const data = await readFile(this.data_source, { encoding: 'utf-8' })
-      return data
+      return JSON.stringify(data)
     } catch (error) {
       console.error(
         `An error occurred while reading the file '${this.data_source}'. Please check the file path and try again.`

@@ -29,8 +29,7 @@
       "@services/*": ["services/*"],
       "@types/*": ["types/*"]
     },
-    "allowImportingTsExtensions": true,
-    "noEmit": true    // Removi o "emitDeclarationOnly": true para que os arquivos .js sejam gerados
+
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
