@@ -14,27 +14,19 @@ export class TaskManagerService {
             return JSON.parse(data);
         }
         catch (error) {
-            if (error.code === 'ENOENT') {
-                await writeFile(this.data_source, [], 'utf-8');
-                console.log('File created successfully with initial content.');
-                return [];
-            }
-            else {
-                console.error(`An error occurred while reading the file '${this.data_source}'. Please check the file path and try again.`);
-                throw error;
-            }
+            console.error(`An error occurred while reading the file '${this.data_source}'. Please check the file path and try again.`);
+            throw error;
         }
     }
     async add(description) {
-        if (!description) {
-            return console.error('To add a new task, it is necessary to provide a description.');
-        }
         let tasks = await this.getTasks();
+        console.log(typeof tasks);
         const taskData = {
             id: uuidv4(),
             description,
             status: 'todo',
-            created_at: Date.now().toString()
+            created_at: Date.now().toString(),
+            updated_at: Date.now().toString()
         };
         tasks.push(taskData);
         await writeFile(this.data_source, JSON.stringify(tasks));

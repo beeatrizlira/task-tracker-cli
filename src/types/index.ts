@@ -8,9 +8,9 @@ export type Functionalities =
   | 'mark_done'
 
 export interface Task {
-  id: number
+  id: string
   description: string;
   status: TaskProgress;
   created_at: string;
-  updated_at: string;
+  updated_at?: string;
 }
