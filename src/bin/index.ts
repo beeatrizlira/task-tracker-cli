@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import * as process from 'process'
-import { FUNCTIONALITIES_MAPPER } from '../helpers/index.js'
+import { FUNCTIONALITIES_MAPPER } from '../helpers/index.ts'
 import { Functionalities } from 'types/index.js'
 
 function callFunctionalities() {
@@ -15,7 +15,9 @@ function callFunctionalities() {
   }
 
   if (!['add', 'list', 'update', 'list', 'mark-done', 'mark_in_progress'].includes(functionality)) {
-    console.error('Error: Invalid command.')
+    console.error(
+      'Error: Invalid command. Available commands: add, update, list, delete, mark_in_progress, mark_done'
+    )
     return
   }
 

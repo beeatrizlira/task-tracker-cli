@@ -1,13 +1,10 @@
 {
   "name": "task-tracker-cli",
   "version": "1.0.0",
-  "main": "./dist/bin/index.js",
+  "main": "./src/bin/index.ts",
   "type": "module",
   "scripts": {
-    "tsc": "tsc",
-    "build": "npm run tsc && ls -la dist && echo \"Build completo!\"",
-    "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsx src/bin/index.ts",
     "start-dev": "NODE_ENV=development tsx ./src/server.ts",
     "prepare": "husky",
     "precommit": "eslint .",
@@ -15,7 +12,7 @@
     "format": "prettier --write ."
   },
   "bin": {
-    "task-cli": "./dist/bin/index.js"
+    "task-cli": "./src/bin/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -35,10 +32,11 @@
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.7.0-dev.20240831",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^8.3.0"
   },
   "dependencies": {
+    "ts-node": "^10.9.2",
     "uuid": "^10.0.0"
   }
 }
