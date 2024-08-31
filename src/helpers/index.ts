@@ -10,9 +10,7 @@ export const FUNCTIONALITIES_MAPPER: Record<
   delete: (task_id: string) => {
     console.log(`delete: ${task_id}`)
   },
-  update: (task_id: string, task_description: string) => {
-    console.log(`update:  ${task_id} ${task_description}`)
-  },
+  update: (task_id: string, task_description: string) => taskManagerService.update(task_id, task_description),
   list: (filter: string) => {
     console.log(`list ${filter}`)
   },

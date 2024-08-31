@@ -46,8 +46,25 @@ export class TaskManagerService {
     try {
       await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
     } catch (error) {
-      console.error(`An error occurred while adding the task. Please try again`)
-      throw error
+      console.error(error)
+      throw new Error(`An error occurred while adding the task. Please try again`)
+    }
+  }
+
+  async update(task_id: string, description: string) {
+    const tasks = await this.getTasks()
+    const currentTaskIndex = tasks.findIndex((task) => task.id === task_id)
+    const currentTask = tasks[currentTaskIndex]
+    if (currentTaskIndex <= -1 || !currentTask) {
+      throw new Error('No task found for the provided ID. Try again with a valid ID.')
+    } 
+    currentTask.description = description
+    tasks[currentTaskIndex] = currentTask 
+    try {
+      await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+    } catch (error) {
+      console.error(error)
+      throw new Error(`An error occurred while updating the task. Please try again`)
     }
   }
 }
