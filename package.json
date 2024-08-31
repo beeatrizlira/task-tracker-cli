@@ -7,7 +7,10 @@
     "build": "yarn tsc && ls -la dist && echo \"Build completo!\"",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "NODE_ENV=development tsx ./src/server.ts"
+    "start-dev": "NODE_ENV=development tsx ./src/server.ts",
+    "prepare": "husky",
+    "precommit": "eslint .",
+    "eslint:fix": "eslint --fix"
   },
   "bin": {
     "task-cli": "./dist/bin/index.js"
@@ -17,9 +20,14 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/compat": "^1.1.1",
     "@eslint/js": "^9.9.1",
     "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
     "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",

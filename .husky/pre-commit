@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Add the directory containing npm to the PATH
+export PATH=/Users/beatrizlira/.nvm/versions/node/v20.15.0/bin:$PATH
+
+# Run the precommit script
+npm run precommit
