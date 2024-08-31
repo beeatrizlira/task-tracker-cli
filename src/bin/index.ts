@@ -14,7 +14,11 @@ function callFunctionalities() {
     return
   }
 
-  if (!['add', 'list', 'update', 'list', 'mark-done', 'mark_in_progress'].includes(functionality)) {
+  if (
+    !['add', 'list', 'update', 'delete', 'list', 'mark-done', 'mark_in_progress'].includes(
+      functionality
+    )
+  ) {
     console.error(
       'Error: Invalid command. Available commands: add, update, list, delete, mark_in_progress, mark_done'
     )

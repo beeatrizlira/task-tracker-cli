@@ -43,12 +43,8 @@ export class TaskManagerService {
 
     tasks.push(taskData)
 
-    try {
-      await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
-    } catch (error) {
-      console.error(error)
-      throw new Error(`An error occurred while adding the task. Please try again`)
-    }
+    await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+    console.log(`Task created successfully`)
   }
 
   async update(task_id: string, description: string) {
@@ -57,15 +53,21 @@ export class TaskManagerService {
     const currentTask = tasks[currentTaskIndex]
     if (currentTaskIndex <= -1 || !currentTask) {
       throw new Error('No task found for the provided ID. Try again with a valid ID.')
-    } 
-    currentTask.description = description
-    tasks[currentTaskIndex] = currentTask 
-    try {
-      await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
-      console.log(`Task ${task_id} updated successfully`)
-    } catch (error) {
-      console.error(error)
-      throw new Error(`An error occurred while updating the task. Please try again`)
     }
+    currentTask.description = description
+    tasks[currentTaskIndex] = currentTask
+    await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+    console.log(`Task ${task_id} updated successfully`)
+  }
+
+  async delete(task_id: string) {
+    const tasks = await this.getTasks()
+    const taskToBeDeletedIndex = tasks.findIndex((task) => task.id === task_id)
+    if (taskToBeDeletedIndex <= -1) {
+      throw new Error('No task found for the provided ID. Try again with a valid ID.')
+    }
+    tasks.splice(taskToBeDeletedIndex, 1)
+    await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+    console.log(`Task ${task_id} was deleted successfully.`)
   }
 }
