@@ -27,7 +27,7 @@ export class TaskManagerService {
     }
   }
 
-  async add(description: string) {
+  async add(description: string, status = 'todo' as TaskStatus) {
     if (!description) {
       throw new Error('To add a new task, it is necessary to provide a description.')
     }
@@ -37,7 +37,7 @@ export class TaskManagerService {
     const taskData: Task = {
       id: uuidv4(),
       description,
-      status: 'todo',
+      status,
       created_at: Date.now().toString()
     }
 

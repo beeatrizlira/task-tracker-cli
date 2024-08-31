@@ -9,7 +9,7 @@ export const FUNCTIONALITIES_MAPPER: Record<
   Functionalities,
   (argument: string, additionalInfo: string) => void
 > = {
-  add: (task_description: string) => taskManagerService.add(task_description),
+  add: (task_description: string, status?: string) => taskManagerService.add(task_description, status as TaskStatus | undefined),
   delete: (task_id: string) =>  taskManagerService.delete(task_id),
   update: (task_id: string, task_description: string) => taskManagerService.update(task_id, task_description),
   list: (filter?: string) => taskManagerService.list(filter),
