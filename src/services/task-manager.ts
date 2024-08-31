@@ -62,6 +62,7 @@ export class TaskManagerService {
     tasks[currentTaskIndex] = currentTask 
     try {
       await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+      console.log(`Task ${task_id} updated successfully`)
     } catch (error) {
       console.error(error)
       throw new Error(`An error occurred while updating the task. Please try again`)
