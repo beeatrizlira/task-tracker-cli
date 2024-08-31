@@ -1,5 +1,7 @@
 # Task Tracker CLI
 
+This project is part of the [backend roadmap on roadmap.sh](https://roadmap.sh/projects/task-tracker). It is designed to help you practice and improve your backend development skills by implementing a task management system in a CLI environment.
+
 Task Tracker CLI is a simple and efficient task manager accessed directly from the terminal. This project allows you to add, list, and manage your daily tasks using quick and easy CLI commands.
 
 ## Features
@@ -94,5 +96,3 @@ To ensure code quality, use:
 Contributions are welcome! Feel free to open issues and pull requests to improve the project.
 
 ### License
-
-This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
