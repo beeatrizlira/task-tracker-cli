@@ -20,19 +20,19 @@ Task Tracker CLI is a simple and efficient task manager accessed directly from t
 
 Clone the repository and install the dependencies:
 
-\```bash
+```bash
 git clone https://github.com/your-username/task-tracker-cli.git
 cd task-tracker-cli
 npm install
-\```
+```
 
 ### Build
 
 After installation, you can build the project using:
 
-\```bash
+```bash
 npm run build
-\```
+```
 
 ### Usage
 
@@ -40,55 +40,55 @@ The `task-cli` command is the main tool you will use to manage your tasks. Here 
 
 #### Add a Task
 
-\```bash
+```bash
 task-cli add "My new task"
 or
 task-cli add "My new task" <task_status>
-\```
+```
 
 #### List All Tasks
 
-\```bash
+```bash
 task-cli list
-\```
+```
 
 #### Filter Tasks by Status
 
-\```bash
+```bash
 task-cli list <status>
-\```
+```
 
 #### Update the Status of a Task
 
-\```bash
+```bash
 task-cli mark-in-progress <task_id>
-\```
+```
 
 #### Delete a Task
 
-\```bash
+```bash
 task-cli delete <task_id>
-\```
+```
 
 ### Development
 
 During development, you can use the following command to start the project in development mode:
 
-\```bash
+```bash
 npm start
-\```
+```
 
 To ensure code quality, use:
 
 - **Lint**: To analyze and find problems in the code:
-  \```bash
+  ```bash
   npm run precommit
-  \```
+  ```
 
 - **Formatting**: To ensure the code follows a consistent style:
-  \```bash
+  ```bash
   npm run format
-  \```
+  ```
 
 ### Contribution
 
