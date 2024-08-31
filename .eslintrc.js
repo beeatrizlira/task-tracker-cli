@@ -5,7 +5,6 @@ export const config = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended'
   ],
-
   env: {
     node: true,
     commonjs: true

@@ -6,8 +6,11 @@ export type Functionalities =
   | 'list'
   | 'mark_in_progress'
   | 'mark_done'
-export type SearchFilters = 'done' | 'todo' | 'in_progress'
+
 export interface Task {
   id: number
-  description: string
+  description: string;
+  status: TaskProgress;
+  created_at: string;
+  updated_at: string;
 }
