@@ -1,1 +1,1 @@
-{"version":3,"file":"task-manager.d.ts","sourceRoot":"","sources":["../../src/services/task-manager.ts"],"names":[],"mappings":"AAEA,qBAAa,kBAAkB;;IAC7B,WAAW,EAAE,MAAM,CAAA;;IAcnB,GAAG,CAAC,WAAW,EAAE,MAAM;CAIxB"}
+{"version":3,"file":"task-manager.d.ts","sourceRoot":"","sources":["../../src/services/task-manager.ts"],"names":[],"mappings":"AAEA,qBAAa,kBAAkB;IAC7B,WAAW,EAAE,MAAM,CAAA;;IAKb,QAAQ;IASd,GAAG,CAAC,WAAW,EAAE,MAAM;CAIxB"}
