@@ -1,8 +1,20 @@
 export const FUNCTIONALITIES_MAPPER = {
-    add: (task_description) => { console.log(`add: ${task_description}`); },
-    delete: (task_id) => { console.log(`delete: ${task_id}`); },
-    update: (task_id, task_description) => { console.log(`update:  ${task_id} ${task_description}`); },
-    list: (filter) => { console.log(`list ${filter}`); },
-    mark_in_progress: (task_id) => { console.log(`mark_in_progress: ${task_id}`); },
-    mark_done: (task_id) => { console.log(`mark_done: ${task_id}`); }
-};
+  add: (task_description) => {
+    console.log(`add: ${task_description}`)
+  },
+  delete: (task_id) => {
+    console.log(`delete: ${task_id}`)
+  },
+  update: (task_id, task_description) => {
+    console.log(`update:  ${task_id} ${task_description}`)
+  },
+  list: (filter) => {
+    console.log(`list ${filter}`)
+  },
+  mark_in_progress: (task_id) => {
+    console.log(`mark_in_progress: ${task_id}`)
+  },
+  mark_done: (task_id) => {
+    console.log(`mark_done: ${task_id}`)
+  }
+}
