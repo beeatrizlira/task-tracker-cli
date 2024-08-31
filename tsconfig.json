@@ -20,9 +20,9 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "strict": true,
-    "outDir": "./src",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "outDir": "./dist",
+
+
     "rootDir": "./src",
     "skipLibCheck": true,
     "baseUrl": "./src",

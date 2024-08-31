@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path'
-import { Task } from '../types/index.js'
+import { Task, TaskStatus } from '../types/index.js'
 import { v4 as uuidv4 } from 'uuid'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -45,6 +45,7 @@ export class TaskManagerService {
 
     await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
     console.log(`Task created successfully`)
+    return taskData.id
   }
 
   async update(task_id: string, description: string) {
@@ -58,6 +59,7 @@ export class TaskManagerService {
     tasks[currentTaskIndex] = currentTask
     await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
     console.log(`Task ${task_id} updated successfully`)
+    return currentTask
   }
 
   async delete(task_id: string) {
@@ -69,5 +71,51 @@ export class TaskManagerService {
     tasks.splice(taskToBeDeletedIndex, 1)
     await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
     console.log(`Task ${task_id} was deleted successfully.`)
+    return task_id
+  }
+
+  findTaskIndex(task_id: string, tasks: Task[]) {
+    const currentTaskIndex = tasks.findIndex((task) => task.id === task_id)
+    const currentTask = tasks[currentTaskIndex]
+    if (currentTaskIndex <= -1 || !currentTask) {
+      throw new Error('No task found for the provided ID. Try again with a valid ID.')
+    }
+
+    return {
+      current_task: currentTask,
+      index: currentTaskIndex
+    }
+  }
+
+  async updateStatus(task_id: string, status: TaskStatus) {
+    const tasks = await this.getTasks()
+    const { current_task, index: currentTaskIndex } = this.findTaskIndex(task_id, tasks)
+
+    if (!['done', 'todo', 'in-progress'].includes(status)) {
+      throw new Error('Invalid task status. Available status: done, todo, in-progress') 
+    }
+
+    current_task.status = status
+    tasks[currentTaskIndex] = current_task
+
+    await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
+    console.log(`Task ${task_id} updated successfully`)
+    return current_task
+  }
+
+  async list(filter?: string) {
+    const tasks = await this.getTasks()
+
+    if (!filter) {
+      return console.log(tasks)
+    }
+
+    if (!['done', 'todo', 'in-progress'].includes(filter)) {
+      throw new Error('Invalid filter. Available filters: done, todo, in-progress.');
+    }
+
+    const filteredTasks = tasks.filter(task => task.status === filter)
+    console.log(filteredTasks)
+    return filteredTasks
   }
 }

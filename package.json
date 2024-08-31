@@ -4,14 +4,15 @@
   "main": "./src/bin/index.ts",
   "type": "module",
   "scripts": {
-    "start": "tsx src/bin/index.ts",
+    "build": "tsc",
+    "start": "node dist/bin/index.js",
     "prepare": "husky",
     "precommit": "eslint .",
     "eslint:fix": "eslint --fix",
     "format": "prettier --write ."
   },
   "bin": {
-    "task-cli": "./src/bin/index.ts"
+    "task-cli": "./dist/bin/index.js"
   },
   "keywords": [],
   "author": "",
