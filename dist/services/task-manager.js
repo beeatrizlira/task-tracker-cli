@@ -20,16 +20,15 @@ export class TaskManagerService {
                 return [];
             }
             else {
-                console.error(`An error occurred while reading the file '${this.data_source}'. Please check the file path and try again.`);
                 throw error;
             }
         }
     }
     async add(description) {
         if (!description) {
-            return console.error('To add a new task, it is necessary to provide a description.');
+            throw new Error('To add a new task, it is necessary to provide a description.');
         }
-        let tasks = await this.getTasks();
+        const tasks = await this.getTasks();
         const taskData = {
             id: uuidv4(),
             description,
@@ -37,6 +36,12 @@ export class TaskManagerService {
             created_at: Date.now().toString()
         };
         tasks.push(taskData);
-        await writeFile(this.data_source, JSON.stringify(tasks));
+        try {
+            await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' });
+        }
+        catch (error) {
+            console.error(`An error occurred while adding the task. Please try again`);
+            throw error;
+        }
     }
 }

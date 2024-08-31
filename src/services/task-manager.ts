@@ -32,7 +32,7 @@ export class TaskManagerService {
       throw new Error('To add a new task, it is necessary to provide a description.')
     }
 
-    let tasks = await this.getTasks()
+    const tasks = await this.getTasks()
 
     const taskData: Task = {
       id: uuidv4(),
