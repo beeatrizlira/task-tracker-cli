@@ -1,4 +1,3 @@
-
 # Task Tracker CLI
 
 Task Tracker CLI is a simple and efficient task manager accessed directly from the terminal. This project allows you to add, list, and manage your daily tasks using quick and easy CLI commands.
