@@ -3,7 +3,7 @@ export declare class TaskManagerService {
     data_source: string;
     constructor();
     getTasks(): Promise<Task[]>;
-    add(description: string): Promise<string>;
+    add(description: string, status?: TaskStatus): Promise<string>;
     update(task_id: string, description: string): Promise<Task>;
     delete(task_id: string): Promise<string>;
     findTaskIndex(task_id: string, tasks: Task[]): {

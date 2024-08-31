@@ -11,7 +11,7 @@ export class TaskManagerService {
     async getTasks() {
         try {
             const data = await readFile(this.data_source, { encoding: 'utf-8' });
-            return JSON.parse(data);
+            return JSON.parse(data !== null && data !== void 0 ? data : []);
         }
         catch (error) {
             if (error.code === 'ENOENT') {
@@ -24,7 +24,7 @@ export class TaskManagerService {
             }
         }
     }
-    async add(description) {
+    async add(description, status = 'todo') {
         if (!description) {
             throw new Error('To add a new task, it is necessary to provide a description.');
         }
@@ -32,7 +32,7 @@ export class TaskManagerService {
         const taskData = {
             id: uuidv4(),
             description,
-            status: 'todo',
+            status,
             created_at: Date.now().toString()
         };
         tasks.push(taskData);

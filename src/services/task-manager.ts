@@ -15,7 +15,7 @@ export class TaskManagerService {
   async getTasks(): Promise<Task[]> {
     try {
       const data = await readFile(this.data_source, { encoding: 'utf-8' })
-      return JSON.parse(data)
+      return data ? JSON.parse(data) : []
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
         await writeFile(this.data_source, [], 'utf-8')
@@ -28,6 +28,7 @@ export class TaskManagerService {
   }
 
   async add(description: string, status = 'todo' as TaskStatus) {
+
     if (!description) {
       throw new Error('To add a new task, it is necessary to provide a description.')
     }
