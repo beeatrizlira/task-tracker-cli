@@ -1,7 +1,7 @@
+import { TaskManagerService } from '../services/task-manager.js';
+const taskManagerService = new TaskManagerService();
 export const FUNCTIONALITIES_MAPPER = {
-    add: (task_description) => {
-        console.log(`add: ${task_description}`);
-    },
+    add: (task_description) => taskManagerService.add(task_description),
     delete: (task_id) => {
         console.log(`delete: ${task_id}`);
     },

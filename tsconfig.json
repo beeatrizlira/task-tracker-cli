@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "ESNext" /* ESNext includes new Level-4 features that were
-               recently added to the ECMA-262 JS spec */
-     ],
-    /* Language and Environment */
+    "lib": ["ESNext"],
     "target": "ES2018",
     "composite": true,
     "declaration": true,
@@ -29,9 +25,13 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-      "@helpers/*": ["helpers/*"]
-    }
+      "@helpers/*": ["helpers/*"],
+      "@services/*": ["services/*"],
+      "@types/*": ["types/*"]
+    },
+    "allowImportingTsExtensions": true,
+    "noEmit": true    // Removi o "emitDeclarationOnly": true para que os arquivos .js sejam gerados
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist/**/*.d.ts", ]
+  "exclude": ["node_modules"]
 }
