@@ -13,4 +13,3 @@ export declare class TaskManagerService {
     updateStatus(task_id: string, status: TaskStatus): Promise<Task>;
     list(filter?: string): Promise<void | Task[]>;
 }
-//# sourceMappingURL=task-manager.d.ts.map
