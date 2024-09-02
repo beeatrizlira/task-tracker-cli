@@ -94,5 +94,3 @@ To ensure code quality, use:
 ### Contribution
 
 Contributions are welcome! Feel free to open issues and pull requests to improve the project.
-
-### License
