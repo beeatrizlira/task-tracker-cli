@@ -31,7 +31,7 @@ export class TaskManagerService {
 
   async add(description: string, status = 'todo' as TaskStatus) {
     if (!description) {
-      process.stderr.write('Error: To add a new task, it is necessary to provide a description.\n')
+      process.stderr.write(ERROR_MESSAGE.MISSING_DESCRIPTION)
       return
     }
 
@@ -56,7 +56,8 @@ export class TaskManagerService {
     const currentTaskIndex = tasks.findIndex((task) => task.id === task_id)
     const currentTask = tasks[currentTaskIndex]
     if (currentTaskIndex <= -1 || !currentTask) {
-      throw new Error('No task found for the provided ID. Try again with a valid ID.')
+      process.stderr.write(ERROR_MESSAGE.TASK_NOT_FOUND)
+      return
     }
     currentTask.description = description
     tasks[currentTaskIndex] = currentTask
@@ -69,7 +70,8 @@ export class TaskManagerService {
     const tasks = await this.getTasks()
     const taskToBeDeletedIndex = tasks.findIndex((task) => task.id === task_id)
     if (taskToBeDeletedIndex <= -1) {
-      throw new Error('No task found for the provided ID. Try again with a valid ID.')
+      process.stderr.write(ERROR_MESSAGE.TASK_NOT_FOUND)
+      return
     }
     tasks.splice(taskToBeDeletedIndex, 1)
     await writeFile(this.data_source, JSON.stringify(tasks), { encoding: 'utf-8' })
@@ -98,7 +100,7 @@ export class TaskManagerService {
     const tasks = await this.getTasks()
     const { current_task, index: currentTaskIndex } = this.findTaskIndex(task_id, tasks)
     const isValidStatus = progress_mapper.includes(status)
-    
+
     if (!isValidStatus) {
       process.stderr.write(ERROR_MESSAGE.INVALID_STATUS)
       return
