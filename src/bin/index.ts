@@ -2,6 +2,7 @@
 import * as process from 'process'
 import { FUNCTIONALITIES_MAPPER } from '../helpers/index.js'
 import { Functionalities } from 'types/index.js'
+import { ERROR_MESSAGE } from 'errors/index.js'
 
 function callFunctionalities() {
   const parameters = process.argv
@@ -10,7 +11,7 @@ function callFunctionalities() {
   const second_argument = parameters[4] as string
 
   if (!functionality) {
-    console.error('Usage: task-cli functionality <task-id> <task-description>')
+    process.stderr.write(ERROR_MESSAGE.WRONG_USAGE)
     return
   }
 
@@ -19,9 +20,7 @@ function callFunctionalities() {
       functionality
     )
   ) {
-    console.error(
-      'Error: Invalid command. Available commands: add, update, list, delete, mark-in-progress, mark-done'
-    )
+    process.stderr.write(ERROR_MESSAGE.INVALID_COMMAND)
     return
   }
 
