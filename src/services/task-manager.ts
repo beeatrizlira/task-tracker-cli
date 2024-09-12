@@ -2,7 +2,6 @@ import { readFile, writeFile } from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { Task, TaskStatus } from '../types/index.js'
-import { v4 as uuidv4 } from 'uuid'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -28,7 +27,6 @@ export class TaskManagerService {
   }
 
   async add(description: string, status = 'todo' as TaskStatus) {
-
     if (!description) {
       throw new Error('To add a new task, it is necessary to provide a description.')
     }
@@ -36,7 +34,7 @@ export class TaskManagerService {
     const tasks = await this.getTasks()
 
     const taskData: Task = {
-      id: uuidv4(),
+      id: String(tasks.length + 1),
       description,
       status,
       created_at: Date.now().toString()
@@ -93,7 +91,7 @@ export class TaskManagerService {
     const { current_task, index: currentTaskIndex } = this.findTaskIndex(task_id, tasks)
 
     if (!['done', 'todo', 'in-progress'].includes(status)) {
-      throw new Error('Invalid task status. Available status: done, todo, in-progress') 
+      throw new Error('Invalid task status. Available status: done, todo, in-progress')
     }
 
     current_task.status = status
@@ -112,10 +110,10 @@ export class TaskManagerService {
     }
 
     if (!['done', 'todo', 'in-progress'].includes(filter)) {
-      throw new Error('Invalid filter. Available filters: done, todo, in-progress.');
+      throw new Error('Invalid filter. Available filters: done, todo, in-progress.')
     }
 
-    const filteredTasks = tasks.filter(task => task.status === filter)
+    const filteredTasks = tasks.filter((task) => task.status === filter)
     console.log(filteredTasks)
     return filteredTasks
   }

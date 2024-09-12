@@ -10,7 +10,7 @@ function callFunctionalities() {
   const second_argument = parameters[4] as string
 
   if (!functionality) {
-    console.error('Usage: task-cli functionality task-id task-description')
+    console.error('Usage: task-cli functionality <task-id> <task-description>')
     return
   }
 
