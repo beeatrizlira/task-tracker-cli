@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import * as process from 'process'
-import { FUNCTIONALITIES_MAPPER } from '../helpers/index.js'
+import { FUNCTIONALITIES_MAPPER, VALID_COMMANDS } from '../helpers/index.js'
 import { Functionalities } from 'types/index.js'
 import { ERROR_MESSAGE } from 'errors/index.js'
 
@@ -15,11 +15,7 @@ function callFunctionalities() {
     return
   }
 
-  if (
-    !['add', 'list', 'update', 'delete', 'list', 'mark-done', 'mark-in-progress'].includes(
-      functionality
-    )
-  ) {
+  if (!VALID_COMMANDS.includes(functionality)) {
     process.stderr.write(ERROR_MESSAGE.INVALID_COMMAND)
     return
   }
